@@ -14,7 +14,7 @@ var dbInstance struct {
 }
 
 type Session struct {
-	db *gorm.DB
+	*gorm.DB
 }
 
 func GetSession() *Session {
@@ -24,7 +24,7 @@ func GetSession() *Session {
 			panic(fmt.Sprintf("failed to open database connection, %s", err.Error()))
 		}
 		dbInstance.instance = new(Session)
-		dbInstance.instance.db = db
+		dbInstance.instance.DB = db
 	})
 	return dbInstance.instance
 }
