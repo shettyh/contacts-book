@@ -17,7 +17,7 @@ var configInstance struct {
 
 type Config struct {
 	DbHost     string `required: "true"` // CB_DBHOST
-	DbPort     string `default:"3306"`
+	DbPort     int    `default:3306`
 	DbUser     string `default:"root"`
 	DbPassword string
 	DbName     string `default:"contactsbook"`

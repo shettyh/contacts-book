@@ -1,5 +1,6 @@
 package model
 
+// Users table data model
 type User struct {
 	Email    string `gorm:"primary_key;"`
 	Name     string
