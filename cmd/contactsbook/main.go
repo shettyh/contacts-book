@@ -4,10 +4,12 @@ import (
 	"encoding/base64"
 	"fmt"
 	"net/http"
+	"os"
 	"strings"
 
+	"github.com/shettyh/contacts-book/pkg/db"
+
 	"github.com/gin-gonic/gin"
-	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"github.com/shettyh/contacts-book/pkg/db/model"
 )
@@ -21,13 +23,22 @@ import (
 
 func main() {
 	//db, err := gorm.Open("sqlite3", "test.db")
-	db, err := gorm.Open("mysql", "root:@tcp(127.0.0.1:3306)/test")
-	if err != nil {
-		panic(err)
-	}
-	defer db.Close()
+	//db, err := gorm.Open("mysql", "root:@tcp(127.0.0.1:3306)/test")
+	//if err != nil {
+	//	panic(err)
+	//}
+	//defer db.Close()
+	//
+	//db.AutoMigrate(&model.User{}, &model.Contact{})
 
-	db.AutoMigrate(&model.User{}, &model.Contact{})
+	//conf := config.GetInstance()
+	//log.Print(conf)
+
+	os.Setenv("CB_DBHOST", "localhost")
+	//os.Setenv("CB_DBPORT", "3306")
+	//os.Setenv("CB_DBUSER", "root")
+	os.Setenv("CB_DBNAME", "test")
+	session := db.GetSession()
 
 	//db.Create(&model.User{Email: "shetty@live.com", Name: "Shetty", Phone: "8970820090"})
 	//
@@ -49,7 +60,7 @@ func main() {
 
 	var contacts []model.Contact
 	var user = model.User{Email: "shetty@live.com"}
-	db.Find(&user).Related(&contacts)
+	session.Find(&user).Related(&contacts)
 	fmt.Println(contacts[0].UserId)
 
 	r := gin.Default()
