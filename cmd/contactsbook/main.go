@@ -14,6 +14,8 @@ import (
 
 func main() {
 	log.Print("Starting the Contacts book service...")
+	//TODO: remove this harcoded values
+	os.Setenv("CB_DBHOST", "localhost")
 
 	log.Print("Initialize the configurations...")
 	config.GetInstance()
@@ -22,7 +24,5 @@ func main() {
 	db.GetSession()
 
 	log.Print("Starting the HTTP server...")
-	//TODO: remove this harcoded values
-	os.Setenv("CB_DBHOST", "localhost")
 	api.Serve()
 }

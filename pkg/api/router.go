@@ -2,6 +2,7 @@ package api
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/shettyh/contacts-book/pkg/api/controller"
 	"github.com/shettyh/contacts-book/pkg/api/middleware"
 )
 
@@ -10,27 +11,31 @@ func NewRouter() *gin.Engine {
 	r.Use(gin.Logger())
 	r.Use(gin.Recovery())
 
+	// Create controllers
+	userController := new(controller.UserController)
+	contactController := new(controller.ContactController)
+
 	api := r.Group("/api/v1")
 	{
 		// No auth endpoints
 		{
-			api.POST("/register", func(c *gin.Context) {
-				c.JSON(200, gin.H{
-					"message": "pong",
-				})
-			})
+			userAPI := api.Group("/user")
+			{
+				userAPI.PUT("/register", userController.Register)
+			}
 		}
 
 		// auth endpoints
 		{
-			basicAuth := api.Group("/")
-			basicAuth.Use(middleware.AuthHandler)
+			contactAPI := api.Group("/contacts")
+			contactAPI.Use(middleware.AuthHandler)
 			{
-				basicAuth.GET("/test", func(c *gin.Context) {
-					c.JSON(200, gin.H{
-						"message": "oho",
-					})
-				})
+				// TODO: check what methods to use like PUT or POST
+				contactAPI.GET("/", contactController.GetAll)
+				contactAPI.PUT("/add", contactController.Add)
+				contactAPI.POST("/update", contactController.Update)
+				contactAPI.DELETE("/:contact_id", contactController.Delete)
+				contactAPI.GET("/search", contactController.Search)
 			}
 		}
 	}
