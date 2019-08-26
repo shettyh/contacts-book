@@ -19,15 +19,12 @@ func NewRouter() *gin.Engine {
 	{
 		// No auth endpoints
 		{
-			userAPI := api.Group("/user")
-			{
-				userAPI.PUT("/register", userController.Register)
-			}
+			api.PUT("/register", userController.Register)
 		}
 
 		// auth endpoints
 		{
-			contactAPI := api.Group("/contacts")
+			contactAPI := api.Group("user/contacts")
 			contactAPI.Use(middleware.AuthHandler)
 			{
 				// TODO: check what methods to use like PUT or POST

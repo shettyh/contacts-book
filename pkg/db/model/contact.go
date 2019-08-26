@@ -6,5 +6,5 @@ type Contact struct {
 	Name  string `gorm:"not null" json:"name"`
 	// TODO: can have multiple phone numbers ?
 	Phone  string `json:"phone"`
-	UserId string `gorm:"primary_key" json:"user_id"`
+	UserId string `gorm:"primary_key" json:"user_id, omitempty"`
 }

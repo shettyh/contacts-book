@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="64f13794-f494-4737-8b54-457d1b285c25" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/contactsbook/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/contactsbook/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/api/controller/contact.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/api/controller/contact.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/api/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/api/router.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/db/model/contact.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/db/model/contact.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/db/model/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/db/model/user.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -86,16 +85,5 @@
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/pkg/db/dao/user_dao.go</url>
-          <line>39</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
