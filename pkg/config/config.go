@@ -16,12 +16,16 @@ var configInstance struct {
 }
 
 type Config struct {
-	DbType     string `default: "mysql"`
-	DbHost     string `required: "true"` // CB_DBHOST
+	// DB configs
+	DbType     string `default:"mysql"`
+	DbHost     string `required:"true"` // CB_DBHOST
 	DbPort     int    `default:"3306"`
 	DbUser     string `default:"root"`
 	DbPassword string
 	DbName     string `default:"contactsbook"`
+
+	// Server config
+	Port int `default:"80"`
 }
 
 func GetInstance() *Config {

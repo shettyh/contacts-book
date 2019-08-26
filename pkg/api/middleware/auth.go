@@ -1,9 +1,14 @@
-package handler
+package middleware
 
 import (
 	"encoding/base64"
+	"log"
 	"net/http"
 	"strings"
+
+	"golang.org/x/crypto/bcrypt"
+
+	"github.com/shettyh/contacts-book/pkg/db/dao"
 
 	"github.com/gin-gonic/gin"
 )
@@ -28,7 +33,27 @@ func AuthHandler(ctx *gin.Context) {
 		return
 	}
 
-	// Set the user in the context so the upstream handler can get the user details.
+	// Set the user in the context so the upstream middleware can get the user details.
 	ctx.Set("user_id", pair[0])
 	ctx.Next()
+}
+
+// validateCredentials will check the user credentials against database
+func validateCredentials(username, password string) bool {
+	// Get the user details from DB
+	userDao := new(dao.UserDao)
+	user, err := userDao.Get(username)
+	if err != nil {
+		log.Printf("Not able to get the user details, %v", err)
+		return false
+	}
+
+	// Check password
+	err = bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(password))
+	if err != nil {
+		log.Printf("Password verification failed, %v", err)
+		return false
+	}
+
+	return true
 }

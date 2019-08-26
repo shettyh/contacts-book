@@ -3,10 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="64f13794-f494-4737-8b54-457d1b285c25" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/contactsbook/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/contactsbook/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/api/handler/auth_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/api/middleware/auth.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/config/config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/db/model/contact.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/db/model/contact.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/db/model/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/db/model/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/db/session.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/db/session.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/db/dao/user_dao.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/db/dao/user_dao.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +49,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Go Build.go build main.go">
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="contacts-book" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -56,9 +57,17 @@
       <filePath value="$PROJECT_DIR$/cmd/contactsbook/main.go" />
       <method v="2" />
     </configuration>
+    <configuration name="go build session.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="contacts-book" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/pkg/db/session.go" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build main.go" />
+        <item itemvalue="Go Build.go build session.go" />
       </list>
     </recent_temporary>
   </component>
@@ -78,5 +87,16 @@
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/pkg/db/dao/user_dao.go</url>
+          <line>39</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
