@@ -13,87 +13,85 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// ContactController will handle all `api/v1//user/contacts` APIs
 type ContactController struct{}
 
+// Add will adds the new contact to the Users contact book
 func (*ContactController) Add(ctx *gin.Context) {
+	userId := ctx.GetString("user_id")
+
+	// Get the request JSON
 	var contact model.Contact
-	err := ctx.BindJSON(&contact)
-	if err != nil {
-		log.Printf("Invalid request json, %v", err)
-		ctx.JSON(http.StatusBadRequest, err)
-		return
+	if err := ctx.BindJSON(&contact); err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 	}
 
-	// Get user id
-	userId, _ := ctx.Get("user_id")
-	contact.UserId = userId.(string)
+	// Set the user ID
+	contact.UserId = userId
 
+	// Add to DB
 	contactDao := new(dao.ContactDao)
-	err = contactDao.Add(&contact)
-	if err != nil {
+	if err := contactDao.Add(&contact); err != nil {
 		log.Printf("Failed to add contact. %v", err)
 		ctx.JSON(http.StatusInternalServerError, err)
 		return
 	}
 
 	ctx.Status(http.StatusOK)
-	return
 }
 
+// Update will try to update the existing contact for the specific user
 func (*ContactController) Update(ctx *gin.Context) {
-	// Get user id
-	userId, _ := ctx.Get("user_id")
+	userId := ctx.GetString("user_id")
 
 	// Get the request JSON mapping
 	var contact model.Contact
-	ctx.BindJSON(&contact)
+	if err := ctx.BindJSON(&contact); err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+	}
 
-	contact.UserId = userId.(string)
+	// Set the user ID
+	contact.UserId = userId
 
 	contactDao := new(dao.ContactDao)
-	err := contactDao.Update(&contact)
-	if err != nil {
+	if err := contactDao.Update(&contact); err != nil {
 		log.Printf("Failed to update contact. %v", err)
 		ctx.JSON(http.StatusInternalServerError, err)
 		return
 	}
 
 	ctx.Status(http.StatusOK)
-	return
 }
 
+// Delete will take the contact email id as argument in the URL
+// and tries to delete that contact.
 func (*ContactController) Delete(ctx *gin.Context) {
+	userId := ctx.GetString("user_id")
+
 	// Get contact id
 	contactId := ctx.Param("contact_id")
 
-	// Get user id
-	userId, _ := ctx.Get("user_id")
-
 	contactDao := new(dao.ContactDao)
-	err := contactDao.Delete(contactId, userId.(string))
-	if err != nil {
+	if err := contactDao.Delete(contactId, userId); err != nil {
 		log.Printf("Failed to delete contact. %v", err)
 		ctx.JSON(http.StatusInternalServerError, err)
 		return
 	}
 
 	ctx.Status(http.StatusOK)
-	return
 }
 
-// TODO: Pagination
+// GetAll will returns all the contacts for the user.
 func (*ContactController) GetAll(ctx *gin.Context) {
-	// Get user id
-	userId, _ := ctx.Get("user_id")
+	userId := ctx.GetString("user_id")
 
 	// Get pagination data
 	pageNo, pageSize := api.GetPaginationDetailsFromCtx(ctx)
-
 	// Calculate the offset
 	offset := pageNo * pageSize
 
 	contactDao := new(dao.ContactDao)
-	contacts, err := contactDao.GetAll(userId.(string), offset, pageSize)
+	contacts, err := contactDao.GetAll(userId, offset, pageSize)
 	if err != nil {
 		log.Printf("Failed to update contact. %v", err)
 		ctx.JSON(http.StatusInternalServerError, err)
@@ -103,10 +101,10 @@ func (*ContactController) GetAll(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, contacts)
 }
 
-// Search
+// Search will search for the contact details.
+// Search can work with EmailId or Name of the contact or Both.
 func (*ContactController) Search(ctx *gin.Context) {
-	// Get user id
-	userId, _ := ctx.Get("user_id")
+	userId := ctx.GetString("user_id")
 
 	// Get query params
 	emailId := ctx.Query("emailId")
@@ -114,12 +112,11 @@ func (*ContactController) Search(ctx *gin.Context) {
 
 	// Get pagination data
 	pageNo, pageSize := api.GetPaginationDetailsFromCtx(ctx)
-
 	// Calculate the offset
 	offset := pageNo * pageSize
 
 	contactsDao := new(dao.ContactDao)
-	contacts, err := contactsDao.Search(userId.(string), emailId, name, offset, pageSize)
+	contacts, err := contactsDao.Search(userId, emailId, name, offset, pageSize)
 	if err != nil {
 		log.Printf("Failed to update contact. %v", err)
 		ctx.JSON(http.StatusInternalServerError, err)
@@ -127,5 +124,4 @@ func (*ContactController) Search(ctx *gin.Context) {
 	}
 
 	ctx.JSON(http.StatusOK, contacts)
-	return
 }

@@ -27,7 +27,6 @@ func NewRouter() *gin.Engine {
 			contactAPI := api.Group("user/contacts")
 			contactAPI.Use(middleware.AuthHandler)
 			{
-				// TODO: check what methods to use like PUT or POST
 				contactAPI.GET("/", contactController.GetAll)
 				contactAPI.PUT("/add", contactController.Add)
 				contactAPI.POST("/update", contactController.Update)

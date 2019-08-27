@@ -10,8 +10,9 @@ const (
 	defaultPageSize = 10
 )
 
+// GetPaginationDetailsFromCtx will get the query params related to the
+// pagination from the Gin Context.
 func GetPaginationDetailsFromCtx(ctx *gin.Context) (pageNo, pageSize int) {
-	// Get the page number
 	pageNo, err := strconv.Atoi(ctx.Query("pageNo"))
 	if err != nil {
 		pageNo = 0
@@ -22,6 +23,5 @@ func GetPaginationDetailsFromCtx(ctx *gin.Context) (pageNo, pageSize int) {
 	if err != nil {
 		pageSize = defaultPageSize
 	}
-
 	return
 }

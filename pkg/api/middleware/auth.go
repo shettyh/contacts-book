@@ -13,27 +13,32 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+const (
+	errAuthFailed = "failed to authorize user"
+)
+
 // AuthHandler is a middleware. It will check and validate the BasicAuth header in the request.
 // This will be called for all the routes for which authentication is required.
 func AuthHandler(ctx *gin.Context) {
 	auth := strings.SplitN(ctx.GetHeader("Authorization"), " ", 2)
 
 	if len(auth) != 2 || auth[0] != "Basic" {
-		ctx.JSON(http.StatusUnauthorized, "Authorization failed")
+		ctx.JSON(http.StatusUnauthorized, gin.H{"error": errAuthFailed})
 		ctx.Abort()
 		return
 	}
 
+	// Decode and validate credentials
 	payload, _ := base64.StdEncoding.DecodeString(auth[1])
 	pair := strings.SplitN(string(payload), ":", 2)
 
 	if len(pair) != 2 || !validateCredentials(pair[0], pair[1]) {
-		ctx.JSON(http.StatusUnauthorized, "Authorization failed")
+		ctx.JSON(http.StatusUnauthorized, gin.H{"error": errAuthFailed})
 		ctx.Abort()
 		return
 	}
 
-	// Set the user in the context so the upstream middleware can get the user details.
+	// Set the user in the context so the upstream can get the user details.
 	ctx.Set("user_id", pair[0])
 	ctx.Next()
 }

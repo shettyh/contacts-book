@@ -9,19 +9,19 @@ import (
 	"github.com/shettyh/contacts-book/pkg/db/model"
 )
 
+// UserController will handle all the User related API's
 type UserController struct{}
 
+// Register will register a new user to the contacts book.
+// User needs to be registered first to use all other API's
 func (*UserController) Register(ctx *gin.Context) {
 	var user model.User
-
-	// gin will automatically handle the json error and send 400 error
-	ctx.BindJSON(&user)
+	if err := ctx.BindJSON(&user); err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+	}
 
 	userDao := new(dao.UserDao)
-	err := userDao.Add(&user)
-
-	//TODO: check gin error handling guideline
-	if err != nil {
+	if err := userDao.Add(&user); err != nil {
 		log.Printf("Failed to register user, %v", err)
 		ctx.JSON(http.StatusInternalServerError, err)
 		return

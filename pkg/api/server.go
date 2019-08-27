@@ -2,6 +2,7 @@ package api
 
 import (
 	"fmt"
+	"log"
 
 	"github.com/shettyh/contacts-book/pkg/config"
 )
@@ -11,5 +12,5 @@ func Serve() {
 	conf := config.GetInstance()
 
 	router := NewRouter()
-	router.Run(fmt.Sprintf(":%d", conf.Port))
+	log.Fatal(router.Run(fmt.Sprintf(":%d", conf.Port)))
 }
