@@ -26,6 +26,7 @@ const (
 	errUnsupportedDb = "unsupported database type: %s"
 )
 
+// dbInstance singleton holder for Session
 var dbInstance struct {
 	once     sync.Once
 	instance *Session
@@ -40,13 +41,14 @@ func GetSession() *Session {
 		log.Print("Creating the database connection...")
 		dbType, connectionString, err := getConnectionDetails()
 		if err != nil {
-			panic(err)
+			log.Fatalf("failed to form the db connection string, %v", err)
 		}
 		// Connect to MySQL server
 		db, err := gorm.Open(dbType, connectionString)
 		if err != nil {
-			panic(fmt.Sprintf("failed to open database connection, %s", err.Error()))
+			log.Fatalf("failed to open database connection, %s", err.Error())
 		}
+
 		dbInstance.instance = new(Session)
 		dbInstance.instance.DB = db
 

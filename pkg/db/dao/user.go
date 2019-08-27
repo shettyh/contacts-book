@@ -12,8 +12,8 @@ const (
 	errPasswordLength = "password should be of atleast 5 characters"
 )
 
-type UserDao struct {
-}
+// UserDao will responsible for all the operations on the users table.
+type UserDao struct{}
 
 func (*UserDao) Add(user *model.User) error {
 	if len(user.Password) < 5 {
