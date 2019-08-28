@@ -2,7 +2,7 @@
 
 ## API Docs
 
-#### Register
+### Register
 User needs to register to the APP to create their contacts book. Using register API they can register.
 
 * **URL** : `/api/v1/register`
@@ -24,7 +24,7 @@ User needs to register to the APP to create their contacts book. Using register 
     }
     ```
  
-#### Add Contact
+### Add Contact
 User can add a new contact using this API. This API needs authentication.
 
 * **URL** : `/api/v1/user/contacts/add`
@@ -40,7 +40,7 @@ User can add a new contact using this API. This API needs authentication.
     }
      ```
 
-#### Update Contact
+### Update Contact
 User can update an existing contact using this API. This API needs authentication.
 
 * **URL** : `/api/v1/user/contacts/update`
@@ -56,14 +56,14 @@ User can update an existing contact using this API. This API needs authenticatio
     }
      ```
   
-#### Delete Contact
+### Delete Contact
 User can delete an existing contact using this API. This API needs authentication.
 
 * **URL** : `/api/v1/user/contacts/<contact email id>`
 * **Request Type** : `DELETE`
 * **Authorization** : `Basic <base64(username:password)>`
 
-#### Get all contacts
+### Get all contacts
 User can get all the contacts using this API. This API can be paginated using the below mentioned Query params and the results will be Sorted based on EmailId of the contact.
 * **URL** : `/api/v1/user/contacts?pageNo=<page no>&pageSize=<page size>`
 * **Request Type** : `GET`
@@ -80,7 +80,7 @@ User can get all the contacts using this API. This API can be paginated using th
         ...
     ]
     ```
-#### Search Contacts
+### Search Contacts
 User can search for contacts using name or email or both using this API. This API can be paginated using the below mentioned Query params and the results will be Sorted based on EmailId of the contact.
 * **URL** : `/api/v1/user/contacts/search?emailId=<emailId>&name=<name>&pageNo=<page no>&pageSize=<page size>`
 * **Request Type** : `GET`
