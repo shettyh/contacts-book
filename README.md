@@ -104,5 +104,7 @@ User can search for contacts using name or email or both using this API. This AP
 - [ ] Have cache/session in authentication middleware so that no need to query DB for user credentials validation.
 - [ ] Add Integration tests.
 - [ ] Add unit tests.
-- [ ] Horizontal scaling support with New SQL databases like Cockroach or TiDB
+- [ ] Horizontal scaling support with New SQL databases like Cockroach or TiDB.
+- [ ] Add docker file.
+- [ ] Add Makefile for build and test.
 
