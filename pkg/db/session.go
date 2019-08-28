@@ -4,15 +4,13 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/shettyh/contacts-book/pkg/db/model"
-
 	"log"
-
-	"github.com/shettyh/contacts-book/pkg/config"
 
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
+	"github.com/shettyh/contacts-book/pkg/config"
+	"github.com/shettyh/contacts-book/pkg/db/model"
 )
 
 // Supported DB types

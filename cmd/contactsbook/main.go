@@ -6,16 +6,14 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/shettyh/contacts-book/pkg/config"
-
-	"github.com/shettyh/contacts-book/pkg/db"
-
-	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"github.com/shettyh/contacts-book/pkg/api"
+	"github.com/shettyh/contacts-book/pkg/config"
+	"github.com/shettyh/contacts-book/pkg/db"
 )
 
 func main() {
 	log.Print("Starting the Contacts book service...")
+	os.Setenv("CB_DBHOST", "localhost")
 
 	log.Print("Initialize the configurations...")
 	config.GetInstance()
@@ -24,18 +22,18 @@ func main() {
 	db.GetSession()
 
 	// Start shutdown hook
-	go shutdownhook()
+	go shutdownHook()
 
 	log.Print("Starting the HTTP server...")
 	api.Serve()
 }
 
-func shutdownhook() {
-	c := make(chan os.Signal, 1)
-	signal.Notify(c, os.Interrupt, syscall.SIGTERM)
+func shutdownHook() {
+	exitSignalChan := make(chan os.Signal, 1)
+	signal.Notify(exitSignalChan, os.Interrupt, syscall.SIGTERM)
 
 	// Wait for the exit signal
-	<-c
+	<-exitSignalChan
 
 	log.Print("Exit signal received. Cleaning up the resources...")
 	db.GetSession().Close()

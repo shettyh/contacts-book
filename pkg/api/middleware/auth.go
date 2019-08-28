@@ -6,11 +6,9 @@ import (
 	"net/http"
 	"strings"
 
-	"golang.org/x/crypto/bcrypt"
-
-	"github.com/shettyh/contacts-book/pkg/db/dao"
-
 	"github.com/gin-gonic/gin"
+	"github.com/shettyh/contacts-book/pkg/db/dao"
+	"golang.org/x/crypto/bcrypt"
 )
 
 const (

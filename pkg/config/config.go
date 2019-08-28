@@ -8,11 +8,11 @@ import (
 )
 
 const (
-	// All the config env's should start with this prefix
+	// All the util env's should start with this prefix
 	envPrefix = "CB"
 )
 
-// configInstance singleton holder for config.
+// configInstance singleton holder for util.
 var configInstance struct {
 	once     sync.Once
 	instance *Config
@@ -27,16 +27,16 @@ type Config struct {
 	DbPassword string // CB_DBPASSWORD
 	DbName     string `default:"contactsbook"` // CB_DBNAME
 
-	// Server config
+	// Server util
 	Port int `default:"80"`
 }
 
-// GetInstance will create or get the config singleton instance.
+// GetInstance will create or get the util singleton instance.
 func GetInstance() *Config {
 	configInstance.once.Do(func() {
 		configInstance.instance = new(Config)
 		err := envconfig.Process(envPrefix, configInstance.instance)
-		// exit if loading config is failed.
+		// exit if loading util is failed.
 		if err != nil {
 			log.Fatalf("failed to load the configs, %v", err)
 		}

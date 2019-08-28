@@ -4,13 +4,10 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/shettyh/contacts-book/pkg/api"
-
-	"github.com/shettyh/contacts-book/pkg/db/dao"
-
-	"github.com/shettyh/contacts-book/pkg/db/model"
-
 	"github.com/gin-gonic/gin"
+	"github.com/shettyh/contacts-book/pkg/api/util"
+	"github.com/shettyh/contacts-book/pkg/db/dao"
+	"github.com/shettyh/contacts-book/pkg/db/model"
 )
 
 // ContactController will handle all `api/v1//user/contacts` APIs
@@ -86,7 +83,7 @@ func (*ContactController) GetAll(ctx *gin.Context) {
 	userId := ctx.GetString("user_id")
 
 	// Get pagination data
-	pageNo, pageSize := api.GetPaginationDetailsFromCtx(ctx)
+	pageNo, pageSize := util.GetPaginationDetailsFromCtx(ctx)
 	// Calculate the offset
 	offset := pageNo * pageSize
 
@@ -111,7 +108,7 @@ func (*ContactController) Search(ctx *gin.Context) {
 	name := ctx.Query("name")
 
 	// Get pagination data
-	pageNo, pageSize := api.GetPaginationDetailsFromCtx(ctx)
+	pageNo, pageSize := util.GetPaginationDetailsFromCtx(ctx)
 	// Calculate the offset
 	offset := pageNo * pageSize
 

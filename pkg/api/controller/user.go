@@ -28,5 +28,5 @@ func (*UserController) Register(ctx *gin.Context) {
 	}
 
 	log.Printf("User %s registered successfully", user.Email)
-	ctx.JSON(http.StatusOK, "Registered successfully")
+	ctx.JSON(http.StatusOK, gin.H{"status": "Registered successfully"})
 }
