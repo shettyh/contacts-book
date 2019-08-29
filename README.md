@@ -1,4 +1,8 @@
 # Contacts Book
+[![Build Status](https://api.travis-ci.org/shettyh/contacts-book.svg?branch=master)](https://api.travis-ci.org/shettyh/contacts-book)
+[![codecov](https://codecov.io/gh/shettyh/contacts-book/branch/master/graph/badge.svg)](https://codecov.io/gh/shettyh/contacts-book)
+[![GoDoc](https://godoc.org/github.com/shettyh/contacts-book?status.svg)](https://godoc.org/github.com/shettyh/contacts-book)
+[![Go Report Card](https://goreportcard.com/badge/github.com/shettyh/contacts-book)](https://goreportcard.com/report/github.com/shettyh/contacts-book)
 
 ## API Docs
 
