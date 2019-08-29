@@ -113,5 +113,4 @@ User can search for contacts using name or email or both using this API. This AP
 - [ ] Add Makefile for build and test.
 - [ ] Input fields validation for all fields like email, phone etc
 - [ ] Dont take DB password in plain text from config.
-- [ ] Add travis Build.
-
+- [x] Add travis Build.
