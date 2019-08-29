@@ -1,0 +1,19 @@
+
+language: go
+
+sudo: enabled
+
+os: linux
+
+go:
+  - 1.12.x
+
+install: true
+
+script:
+  - go build
+  - go vet .
+  - go test -coverprofile=coverage.txt -covermode=atomic
+  
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
