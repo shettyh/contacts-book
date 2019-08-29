@@ -121,3 +121,4 @@ User can search for contacts using name or email or both using this API. This AP
 - [ ] Better error messages, like Email already exists etc.
 - [ ] Add overall Architecture docs
 - [ ] Run integration((e2e) tests in travis.
+- [ ] Add Performance tests
