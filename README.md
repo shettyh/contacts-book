@@ -102,11 +102,15 @@ User can search for contacts using name or email or both using this API. This AP
     ]
     ```
   
+## Running tests
+
+* Run unit and integration tests: `go test -tags=integration ./...`
+* All unit test will be run in every build in Travis.
  
 ## Enhancements (TODO)
 - [ ] Use separate models for API requests and have DTO's for database model conversion. So that API requests and DB models will be independent of each other.
 - [ ] Have cache/session in authentication middleware so that no need to query DB for user credentials validation.
-- [ ] Add Integration tests.
+- [x] Add Integration tests.
 - [ ] Add more unit tests.
 - [ ] Horizontal scaling support with New SQL databases like Cockroach or TiDB.
 - [ ] Add docker file.
@@ -115,3 +119,5 @@ User can search for contacts using name or email or both using this API. This AP
 - [ ] Dont take DB password in plain text from config.
 - [x] Add travis Build.
 - [ ] Better error messages, like Email already exists etc.
+- [ ] Add overall Architecture docs
+- [ ] Run integration((e2e) tests in travis.

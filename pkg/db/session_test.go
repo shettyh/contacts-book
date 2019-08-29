@@ -16,6 +16,7 @@ func init() {
 	// Set test database details
 	os.Setenv("CB_DBTYPE", "sqlite3")
 	os.Setenv("CB_DBHOST", "localhost")
+	os.Setenv("CB_DBNAME", "../../contactsbook")
 }
 
 func TestGetSession(t *testing.T) {
