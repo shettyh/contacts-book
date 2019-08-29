@@ -43,3 +43,8 @@ func GetInstance() *Config {
 	})
 	return configInstance.instance
 }
+
+// Reload will reload all the ENV configs
+func (c *Config) Reload() error {
+	return envconfig.Process(envPrefix, configInstance.instance)
+}

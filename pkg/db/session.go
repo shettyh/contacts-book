@@ -16,7 +16,7 @@ import (
 // Supported DB types
 const (
 	dbTypeMysql  = "mysql"
-	dbTypeSqlite = "sqlite"
+	dbTypeSqlite = "sqlite3"
 )
 
 // Errors
