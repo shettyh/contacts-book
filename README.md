@@ -110,7 +110,8 @@ User can search for contacts using name or email or both using this API. This AP
 - [ ] Add more unit tests.
 - [ ] Horizontal scaling support with New SQL databases like Cockroach or TiDB.
 - [ ] Add docker file.
-- [ ] Add Makefile for build and test.
+- [x] Add Makefile for build and test.
 - [ ] Input fields validation for all fields like email, phone etc
 - [ ] Dont take DB password in plain text from config.
 - [x] Add travis Build.
+- [ ] Better error messages, like Email already exists etc.

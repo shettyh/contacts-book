@@ -2,16 +2,53 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="64f13794-f494-4737-8b54-457d1b285c25" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/contacts-book.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/contacts-book.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/api/controller/contact.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/api/controller/contact.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/api/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/api/router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/db/model/contact.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/db/model/contact.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="317" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="contactsbook" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="contactsbook" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="contactsbook" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="contactsbook" type="feb32156:DbDataSourceImpl" />
+        <item name="collations" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+    </expand>
+    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -20,6 +57,7 @@
       </list>
     </option>
   </component>
+  <component name="GOROOT" path="/usr/local/go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -32,8 +70,14 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pkg/api/util" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -47,27 +91,81 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Build.go build main.go">
-    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.TestAddContact in github.com/shettyh/contacts-book/e2e">
+    <configuration name="TestAddContact in github.com/shettyh/contacts-book/e2e" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="contacts-book" />
-      <working_directory value="$PROJECT_DIR$/" />
-      <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/cmd/contactsbook/main.go" />
+      <working_directory value="$PROJECT_DIR$/e2e" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/shettyh/contacts-book/e2e" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestAddContact$" />
       <method v="2" />
     </configuration>
-    <configuration name="go build session.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="TestDeleteContact in github.com/shettyh/contacts-book/e2e" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="contacts-book" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/pkg/db/session.go" />
+      <working_directory value="$PROJECT_DIR$/e2e" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/shettyh/contacts-book/e2e" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestDeleteContact$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestGetAllContacts in github.com/shettyh/contacts-book/e2e" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="contacts-book" />
+      <working_directory value="$PROJECT_DIR$/e2e" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/shettyh/contacts-book/e2e" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestGetAllContacts$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestSearchContacts in github.com/shettyh/contacts-book/e2e" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="contacts-book" />
+      <working_directory value="$PROJECT_DIR$/e2e" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/shettyh/contacts-book/e2e" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestSearchContacts$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestSearchContactsByEmail in github.com/shettyh/contacts-book/e2e" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="contacts-book" />
+      <working_directory value="$PROJECT_DIR$/e2e" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/shettyh/contacts-book/e2e" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestSearchContactsByEmail$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build main.go" />
-        <item itemvalue="Go Build.go build session.go" />
+        <item itemvalue="Go Test.TestAddContact in github.com/shettyh/contacts-book/e2e" />
+        <item itemvalue="Go Test.TestDeleteContact in github.com/shettyh/contacts-book/e2e" />
+        <item itemvalue="Go Test.TestSearchContactsByEmail in github.com/shettyh/contacts-book/e2e" />
+        <item itemvalue="Go Test.TestSearchContacts in github.com/shettyh/contacts-book/e2e" />
+        <item itemvalue="Go Test.TestGetAllContacts in github.com/shettyh/contacts-book/e2e" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand />
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -77,7 +175,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -85,5 +185,24 @@
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/pkg/db/session_test.go</url>
+          <line>98</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/pkg/db/session.go</url>
+          <line>67</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/contacts_book$go_test_github_com_shettyh_contacts_book_pkg_db.out" NAME="go test github.com/shettyh/contacts-book/pkg/db Coverage Results" MODIFIED="1567054339427" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
