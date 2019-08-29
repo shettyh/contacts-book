@@ -13,7 +13,6 @@ import (
 
 func main() {
 	log.Print("Starting the Contacts book service...")
-	os.Setenv("CB_DBHOST", "localhost")
 
 	log.Print("Initialize the configurations...")
 	config.GetInstance()
