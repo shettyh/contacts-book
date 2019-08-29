@@ -11,7 +11,7 @@ go:
 install: true
 
 script:
-  - go build
+  - go build cmd/contactsbook/main.go
   - go vet .
   - go test -coverprofile=coverage.txt -covermode=atomic
   
