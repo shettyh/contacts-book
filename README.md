@@ -103,10 +103,11 @@ User can search for contacts using name or email or both using this API. This AP
 - [ ] Use separate models for API requests and have DTO's for database model conversion. So that API requests and DB models will be independent of each other.
 - [ ] Have cache/session in authentication middleware so that no need to query DB for user credentials validation.
 - [ ] Add Integration tests.
-- [ ] Add unit tests.
+- [ ] Add more unit tests.
 - [ ] Horizontal scaling support with New SQL databases like Cockroach or TiDB.
 - [ ] Add docker file.
 - [ ] Add Makefile for build and test.
 - [ ] Input fields validation for all fields like email, phone etc
 - [ ] Dont take DB password in plain text from config.
+- [ ] Add travis Build.
 
